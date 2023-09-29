@@ -4,18 +4,19 @@ public class ArraysLoops {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		double notas [] = new double[7];
-		int cont,sum;
-		
+		int cont,num,sum=0;
+		num = 0;
 		for (cont=0; cont<=6; cont++) {
 			notas[cont] = sc.nextDouble();
-			
+			sum += notas[cont];
+			num += 1;
+			sc.close();
 		}
-		double media;
+		double media = sum/num;
+		System.out.println("Média da turma: "+media);
 		for (cont=0; cont<=6; cont++) {
-			System.out.println("");
+			System.out.println("Nota do aluno "+ (cont+1)+": "+notas[cont]);
 		}
 		
-		sc.close();
 	}
-
 }
