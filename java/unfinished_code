@@ -1,0 +1,21 @@
+package br.com.fiap.conta;
+import java.util.Scanner;
+public class ArraysLoops {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		double notas [] = new double[7];
+		int cont,sum;
+		
+		for (cont=0; cont<=6; cont++) {
+			notas[cont] = sc.nextDouble();
+			
+		}
+		double media;
+		for (cont=0; cont<=6; cont++) {
+			System.out.println("");
+		}
+		
+		sc.close();
+	}
+
+}
