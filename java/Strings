@@ -1,0 +1,28 @@
+package br.com.fiap.tds;
+public class StringTest {
+	public static void main(String[] args) {
+		String stringona = new String("String\n\"Test\"");
+		String continuacao = new String("\nThe test was successful!\n");
+		String cat = stringona.concat(continuacao);
+		System.out.println(cat + "String length: "+cat.length());
+		if (cat.equals(stringona))
+			System.out.println("Strings are equal!");
+		else
+			System.out.println("Strings are different!");
+		if (cat.startsWith("String") && cat.endsWith("successful!\n"))
+			System.out.println("String starts with \"String\" and ends with \"successful!\"!");
+		else
+			System.out.println("String doesn't start with \"String\" and ends with \"successful!\"!");
+	    char third = cat.charAt(2);
+	    System.out.println("The String's third character is: "+third+"\nThe index of the third character is: "+cat.indexOf(cat.substring(2,3)));
+	    System.out.println("The index of the last time the third character appears is: "+cat.lastIndexOf(cat.substring(2, 3)));
+	    String nova = cat.substring(cat.indexOf("The")).toUpperCase().replace('E', '3').replace("FUL", "ful");
+	    System.out.println("The new String is: "+nova);
+	    String[] components = nova.split(" ");
+	    int cont = 0;
+	    for (String component : components ) {
+	    	System.out.println("Component "+(cont+1)+" of the String: "+component);
+	    	cont ++;
+	    }
+	}
+}
