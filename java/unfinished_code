@@ -1,51 +1,27 @@
 package br.com.fiap.tds;
 import java.util.Scanner;
-public class ArraysLoops {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		float notas[] = new float[7];
-		float sum=0;
-		for (int cont=0; cont< notas.length; cont++) {
-			notas[cont] = Float.parseFloat(sc.nextLine());
-		}
-		
-		for (int cont=0; cont< notas.length; cont++) {
-			sum+= notas[cont];
-		} 
-		
-	    float media = sum/notas.length;
-	    double roundit = Math.round(media*100.0)/100.0;
-		System.out.println("Média da turma: "+roundit);
-		for (int cont=0; cont<=6; cont++) {
-			System.out.println("Nota do aluno "+ (cont+1)+": "+notas[cont]);
-		}
-		sc.close();
-		}
-}
-
-package br.com.fiap.tds;
-import java.util.Scanner;
 public class Arrays_Loops {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		float notas[] = new float[7];
-		float sum=0;
-		for (int cont=0; cont< notas.length; cont++) {
-			notas[cont] = Float.parseFloat(sc.nextLine());
-		}
-		
-		for (int cont=0; cont< notas.length; cont++) {
-			sum+= notas[cont];
-		} 
-		
-	    float media = sum/notas.length;
-	    double roundit = Math.round(media*100.0)/100.0;
-		System.out.println("Média da turma: "+roundit);
-		for (float aluno : notas) {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			float notas[] = new float[7];
+			float sum=0;
+			for (int cont=0; cont< notas.length; cont++) {
+				System.out.println("Informe a nota do aluno "+(cont + 1)+": ");
+				notas[cont] = Float.parseFloat(sc.nextLine());
+			}
+			
+			for (int cont=0; cont< notas.length; cont++) {
+				sum+= notas[cont];
+			} 
+			
+		    float media = sum/notas.length;
+		    double roundit = Math.round(media*100.0)/100.0;
+			System.out.println("Média da turma: "+roundit);
 			int cont = 0;
-			System.out.println("Nota do aluno "+ (cont+1)+": "+ aluno);
-			cont ++;
-		}
-		sc.close();
-		}
-}
+			for (float aluno : notas) {
+				System.out.println("Nota do aluno "+ (cont+1)+": "+ aluno);
+				cont += 1;
+			}
+			sc.close();
+			}
+	}
