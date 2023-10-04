@@ -23,3 +23,29 @@ public class ArraysLoops {
 		}
 }
 
+package br.com.fiap.tds;
+import java.util.Scanner;
+public class Arrays_Loops {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		float notas[] = new float[7];
+		float sum=0;
+		for (int cont=0; cont< notas.length; cont++) {
+			notas[cont] = Float.parseFloat(sc.nextLine());
+		}
+		
+		for (int cont=0; cont< notas.length; cont++) {
+			sum+= notas[cont];
+		} 
+		
+	    float media = sum/notas.length;
+	    double roundit = Math.round(media*100.0)/100.0;
+		System.out.println("Média da turma: "+roundit);
+		for (float aluno : notas) {
+			int cont = 0;
+			System.out.println("Nota do aluno "+ (cont+1)+": "+ aluno);
+			cont ++;
+		}
+		sc.close();
+		}
+}
