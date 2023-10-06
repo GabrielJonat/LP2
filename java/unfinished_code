@@ -1,27 +1,39 @@
 package br.com.fiap.tds;
+import java.util.HashSet;
 import java.util.Scanner;
-public class Arrays_Loops {
-		public static void main(String[] args) {
-			Scanner sc = new Scanner(System.in);
-			float notas[] = new float[7];
-			float sum=0;
-			for (int cont=0; cont< notas.length; cont++) {
-				System.out.println("Informe a nota do aluno "+(cont + 1)+": ");
-				notas[cont] = Float.parseFloat(sc.nextLine());
-			}
-			
-			for (int cont=0; cont< notas.length; cont++) {
-				sum+= notas[cont];
-			} 
-			
-		    float media = sum/notas.length;
-		    double roundit = Math.round(media*100.0)/100.0;
-			System.out.println("Média da turma: "+roundit);
-			int cont = 0;
-			for (float aluno : notas) {
-				System.out.println("Nota do aluno "+ (cont+1)+": "+ aluno);
-				cont += 1;
-			}
-			sc.close();
-			}
+public class HashTest {
+	public static void main(String[] args) {
+		int i=0;
+		HashSet<String> animals = new HashSet<String>();
+		animals.add("Águia");
+		animals.add("Leão");
+		animals.add("Boi");
+		animals.add("Homem");
+		String [] ArrayAnimals = new String[animals.size()];
+		for(String ele : animals) {
+			ArrayAnimals[i++] = ele;}
+		System.out.println("Array contains:");
+		for(String animal: ArrayAnimals) {
+			System.out.println(animal);
+		}
+		System.out.println("Cleaning set!");
+		animals.clear();
+		Scanner sc = new Scanner(System.in);
+		String resp = new String();
+		do {
+			System.out.println("Please add elements to the array:");
+			String newObject = sc.next();
+			animals.add(newObject);
+			System.out.println("Continue adding?");
+			resp = sc.next().toUpperCase();}
+		while(resp.equals("SIM")|| resp.equals("S"));
+		sc.close();
+		i = 0;
+		for(String ele : animals) {
+			ArrayAnimals[i++] = ele;}
+		System.out.println("Array contains:");
+		for(String animal: ArrayAnimals) {
+			System.out.println(animal);
+		}
 	}
+}
