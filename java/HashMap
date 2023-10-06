@@ -1,0 +1,13 @@
+package br.com.fiap.tds;
+import java.util.HashMap;
+public class MapCliente {
+	public static <E> void main(String[] args) {
+		HashMap<String,Cliente> dictCliente = new HashMap <String,Cliente>();
+		Cliente cliente1 = new Cliente("João");
+		Cliente cliente2 = new Cliente("Pedro");
+		dictCliente.put("G002A", cliente1);
+		dictCliente.put("NS61B", cliente2);
+		dictCliente.forEach((chave,valor) -> {System.out.println("Cliente "+chave.substring(3,4)+": "+(dictCliente.get(chave)).GetNome());});
+	}
+
+}
