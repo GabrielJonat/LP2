@@ -1,5 +1,6 @@
 package br.com.fiap.tds;
 import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Scanner;
 public class HashTest {
 	public static void main(String[] args) {
@@ -27,9 +28,8 @@ public class HashTest {
 			System.out.println("Continue adding?");
 			resp = sc.next().toUpperCase();}
 		while(resp.equals("SIM")|| resp.equals("S"));
-		sc.close();
 		i = 0;
-		for(int j=0;j<= 3;j++) {
+		for(int j=0;j<= ArrayAnimals.length - 1;j++) {
 			ArrayAnimals[j] = "0";
 		}
 		for(String ele : animals) {
@@ -39,5 +39,30 @@ public class HashTest {
 			if(!animal.equals("0"))	
 			System.out.println(animal);
 		}
+		do {
+			System.out.println("Please search for an item in the array:");
+			String searchedObject = sc.next();
+			boolean search = animals.contains(searchedObject);
+			if(search)
+				System.out.println("The item has been found in the array!\nThe index of the searched item is: "+Arrays.asList(ArrayAnimals).indexOf(searchedObject));
+			else
+				System.out.println("Sorry, the given item hasn't been found!");
+			System.out.println("Continue searching?");
+			resp = sc.next().toUpperCase();}
+		while(resp.equals("SIM")|| resp.equals("S"));
+		do {
+			System.out.println("Please remove an item from the array:");
+			String removedObject = sc.next();
+			boolean search = animals.contains(removedObject);
+			if(search) {
+				animals.remove(removedObject);
+				System.out.println("The item has been removed!");}
+			else
+				System.out.println("Sorry, the given item hasn't been found!");
+			System.out.println("Continue removing?");
+			resp = sc.next().toUpperCase();}
+		while((resp.equals("SIM")|| resp.equals("S"))&& !animals.isEmpty());
+		System.out.println("Final size of the array: "+ animals.size());
+		sc.close();
 	}
 }
