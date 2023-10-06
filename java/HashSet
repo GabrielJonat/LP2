@@ -1,0 +1,18 @@
+package br.com.fiap.tds;
+import java.util.HashSet;
+public class HashTest {
+	public static void main(String[] args) {
+		int i=0;
+		HashSet<String> animals = new HashSet<String>();
+		animals.add("Águia");
+		animals.add("Leão");
+		animals.add("Boi");
+		animals.add("Homem");
+		String [] ArrayAnimals = new String[animals.size()];
+		for(String ele : animals) {
+			ArrayAnimals[i++] = ele;}
+		for(String animal: ArrayAnimals) {
+			System.out.println(animal);
+		}
+	}
+}
