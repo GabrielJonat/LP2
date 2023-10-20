@@ -5,7 +5,7 @@ import random
 pygame.font.init()
 WIDTH,HEIGHT = 1000,800
 TELA = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption("Star Dodge")
+pygame.display.set_caption("Star Dodge by Gabriel Jonathan")
 BG = pygame.image.load("bg.jpeg")
 PLAYER_WIDTH = 40
 PLAYER_HEIGHT = 60
