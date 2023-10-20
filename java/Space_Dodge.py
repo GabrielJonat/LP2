@@ -12,17 +12,20 @@ PLAYER_HEIGHT = 60
 PLAYER_VEL = 1.618
 PROJECTILE_WIDTH = 10
 PROJECTILE_HEIGHT = 20
-PROJECTILE_VEL = 2.3
+PROJECTILE_VEL = 2.6
 FONT = pygame.font.SysFont("Comicsans",30)
-def draw(player,elapsedTime,projectiles):
+bestTime = 0
+def draw(player,elapsedTime,projectiles,bestTime):
     TELA.blit(BG,(0,0))
     timeText = FONT.render("Time: "+str(round(elapsedTime))+"s",1,"yellow")
+    bestTimeText = FONT.render("Best time: "+str(round(bestTime))+"s",1,"yellow")
+    TELA.blit(bestTimeText,(800,5))
     TELA.blit(timeText,(10,10))
     pygame.draw.rect(TELA,"red",player)
     for projectile in projectiles:
         pygame.draw.rect(TELA,"white",projectile)
     pygame.display.update()
-def main():
+def main(bestTime):
     run = True
     player = pygame.Rect(200,HEIGHT - PLAYER_HEIGHT,PLAYER_WIDTH,PLAYER_HEIGHT)
     clock = pygame.time.Clock()
@@ -40,7 +43,7 @@ def main():
                 proj_x = random.randint(0,WIDTH - PROJECTILE_WIDTH)
                 proj = pygame.Rect(proj_x,-PROJECTILE_HEIGHT,PROJECTILE_WIDTH,PROJECTILE_HEIGHT)
                 projectiles.append(proj)
-            projectile_add_increment = max(150, projectile_add_increment - 30)
+            projectile_add_increment = max(420, projectile_add_increment - 30)
             projectile_count = 0
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -62,11 +65,13 @@ def main():
         if hit == True:
             game_over = FONT.render("VOCÊ FOI DE ARRASTA PRA CIMA! GAME OVER!",1,"purple")
             TELA.blit(game_over,(WIDTH/2 - game_over.get_width()/2,HEIGHT/2 - game_over.get_height()/2))
+            if elapsedTime >= bestTime:
+                bestTime = elapsedTime
             pygame.display.update()
             pygame.time.delay(2000)
             break
-        draw(player,elapsedTime,projectiles)
+        draw(player,elapsedTime,projectiles,bestTime)
 
-    main()
+    main(bestTime)
 if __name__ == "__main__":
-    main()
+    main(bestTime)
