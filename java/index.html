@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro exercício</title>
+    <title>Mídias em HTML5</title>
 </head>
 <body>
-    <h1>Olá, mundo!</h1>
-    <hr>
-    <p>Esse é o meu primeiro documento HTML!
-    Estou muito feliz!</p>
-    <p>Este é um momento único! Estou criando um site!</p>
+    <h1>Imagens Dinâmicas</h1>
+    <p>Tente acessar este site por meio de diversos dispositivos ou, simplesmente, aumente e diminua o tamanho do seu navegador </p>
+    <picture>
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="imagem flexível">
+    </picture>
+    <audio preload="metadata" autoplay controls loop>
+        <source src="midia/Romeo - The Sky Within.mp3" type="audio/mpeg">
+        <source src="midia/Romeo - The Sky Within.ogg" type="audio/ogg">
+        <source src="midia/Romeo - The Sky Within.wav" type="audio/wav">
+        <p>Infelizmente seu navegador não pode reproduzir áudio. <a href="midia/guanacast-33.mp3">clique aqui para baixar o arquivo MP3</a></p>
+    </audio>
 </body>
 </html>
