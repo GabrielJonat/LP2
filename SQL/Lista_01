@@ -1,0 +1,15 @@
+insert into Paciente values (55, 'João Pedro de Andrade Vazconcelos','14/05/1989','M','Rua Avelino dos Santos','Sorocaba','S');
+insert into Consulta values (200, sysdate, 'P', 55, 1);
+ALTER TABLE Paciente ADD (País varchar2(15));
+ALTER TABLE Paciente MODIFY (Endereco varchar2(28));
+ALTER TABLE Paciente DROP COLUMN País;
+ALTER TABLE Paciente MODIFY (Endereco NOT NULL);
+update Paciente set Datanasc = '01-09-1990' where Codpaciente = 1;
+update Paciente set desconto = 'N';
+update Paciente set Endereco =  ‘Rua Melo Alves,40', cidade = 'Itu' where Codpaciente = 2;
+delete from Consulta where Codconsulta = 200 and Valconsulta = 0;
+delete from Paciente where Codpaciente = 55;
+delete from Paciente where cidade = 'Sorocaba' and Sexo = 'F';
+update Paciente set desconto = 'S' where Sexo = 'F' and (MONTHS_BETWEEN(SYSDATE, Datanasc) / 12) > 60;
+ALTER TABLE Paciente ADD (Telefone varchar2(15));
+update Paciente set Telefone = '(15)90028922' where Codpaciente = 55;
